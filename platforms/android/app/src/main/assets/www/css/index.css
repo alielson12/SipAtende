@@ -1,0 +1,108 @@
+div:focus {outline:0;} /* fix border button */ 
+div:active {outline:0;} /* fix border button */ 
+
+body {
+     
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;    
+  width: 100%;
+  flex-direction: column;
+  margin: 0;
+
+}
+
+.background {
+  display: flex;
+  background-color: black;
+  width: 100%;
+  height: 100vh;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  flex-direction: column;
+  align-items: center;
+}
+
+.person {
+  width: 200px;
+  height: 200px;
+  border: solid 1px greenyellow;
+  margin-top: 50px;
+  border-radius: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.person div {
+  width: 95%;
+  height: 95%;
+  border: solid 2px greenyellow;
+  border-radius: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.image {
+  height: 90%;
+  width: 90%;
+  object-fit: cover;
+  border-radius: 100%;
+}
+
+.button {
+  width: 50%;
+  height: 50px;
+  margin-top: 50px;
+  margin-bottom: 50px;
+  border: 2px solid #CCC;
+  border-radius: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: large;
+  color: white;
+  font-family: 'Courier New', Courier, monospace;
+  text-align: center;
+  cursor: pointer;
+}
+.mensagem{
+  margin-top: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 3em;
+  color: white;
+  font-family: 'Courier New', Courier, monospace;
+}
+.mensagem2{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1em;
+  color: white;
+  font-family: 'Courier New', Courier, monospace;
+}
+
+.button:active{
+  position: relative;
+  top: -2px;
+}
+
+.bottom-button {
+  margin-top: 20px;
+  width: 80%;
+  height: 120px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+}
+.bt-1 {
+  width: 120px;
+  height: 120px;
+  border-radius: 100%;
+  background-color: blue;
+}
