@@ -2,7 +2,7 @@ div:focus {outline:0;} /* fix border button */
 div:active {outline:0;} /* fix border button */ 
 
 body {
-     
+  
   display: flex;
   justify-content: center;
   align-items: center;
@@ -78,6 +78,7 @@ body {
   font-family: 'Courier New', Courier, monospace;
 }
 .mensagem2{
+  
   display: flex;
   justify-content: center;
   align-items: center;
