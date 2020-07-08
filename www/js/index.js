@@ -3,6 +3,7 @@ var password;
 var realm;
 var callid;
 var msg;
+var aux = true;
 
 var sipManager = {
 	register: function () {
@@ -35,10 +36,18 @@ var sipManager = {
 	hangup: function () {
 		cordova.plugins.sip.hangup(function (e) { console.log(e) }, function (e) { console.log(e) })
 	},
-	speaker: function() {
-		cordova.plugins.sip.toggleSpeaker(function (e)  {alert("Deu Bom"), alert(e.toString()) }, function (e) {alert("deu merda"),alert(e.toString()) })
-		
-	},
+	// speaker: function() {
+	// 	AudioToggle.setAudioMode(AudioToggle.SPEAKER);
+	// 	alert('viva loz ligado')
+	// },
+
+
+	// video: function () {
+	// 	cordova.plugins.sip.toggleVideo(function (e) { console.log(e) }, function (e) { console.log(e) })
+	// },
+	// mute: function () {
+	// 	cordova.plugins.sip.toggleMute(function (e) { console.log(e) }, function (e) { console.log(e) })
+	// },
 
 	
 
@@ -109,9 +118,32 @@ const offButton = () => {
 }
 
   const vivaVoz = () =>{
-  alert("Viva Voz")
-   sipManager.speaker(); 
+	 
+    if (aux ==true){
+		AudioToggle.setAudioMode(AudioToggle.SPEAKER);
+		aux = false;
+		
+	}
+     else{
+		AudioToggle.setAudioMode(AudioToggle.EARPIECE);
+		aux = true;
+		
+	 }
+	
 }
+
+
+
+
+// const mute = () =>{
+// 	alert("mutou")
+// 	 sipManager.mute(); 
+//   }
+
+//   const video = () =>{
+// 	alert("ligou video")
+// 	 sipManager.video(); 
+//   }  
 
 
 const handleCallButton = () => {
@@ -151,6 +183,8 @@ const handleCallButton = () => {
 
 document.querySelector("#connect").addEventListener("click", ()=>{handleCallButton()})
 document.querySelector("#viva").addEventListener("click", ()=>{vivaVoz()})
+// document.querySelector("#video").addEventListener("click", ()=>{video()})
+// document.querySelector("#mute").addEventListener("click", ()=>{mute()})
 msg = document.querySelector("#spanid")
 document.querySelector("#off").addEventListener("click", ()=>{offButton()})
 

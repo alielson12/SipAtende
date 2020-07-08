@@ -16,6 +16,9 @@
     "cordova-plugin-advanced-http": {
       "OKHTTP_VERSION": "3.10.0",
       "PACKAGE_NAME": "io.cordova.hellocordova"
+    },
+    "cordova-plugin-audiotoggle": {
+      "PACKAGE_NAME": "io.cordova.hellocordova"
     }
   },
   "dependent_plugins": {

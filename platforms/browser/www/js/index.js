@@ -2,34 +2,55 @@ var privateId;
 var password;
 var realm;
 var callid;
+var msg;
+var aux = true;
 
 var sipManager = {
 	register: function () {
+
 		console.log('reg')
 		cordova.plugins.sip.login(privateId, password , 'voip.vn3anjo.com.br', function (e) {
 			console.log("here")
 			if (e == 'RegistrationSuccess') {
+	
+				msg.innerHTML = "Conectado";
 				console.log(e);
 				sipManager.listen();
 
 			} else {
-				alert("Registration Failed!");
+	
+				msg.innerHTML = "Registration Failed!";
 			}
 
 		}, function (e) { console.log(e) })
 	},
 	call: function () {
-		console.log(cordova)
-		cordova.plugins.sip.call('720301', '12345678','voip.vn3anjo.com.br', sipManager.events, sipManager.events)
-		alert("ligou")
+		msg.innerHTML = "Realizando Chamada";
+		cordova.plugins.sip.call(callid, '12345678','voip.vn3anjo.com.br', sipManager.events, sipManager.events)
+		
 	},
 	listen: function () {
 		cordova.plugins.sip.listenCall(sipManager.events, sipManager.events);
-		alert("pronto para receber ligacoes")
+		msg.innerHTML = "Conectado e Pronto Para receber Ligações" ;
 	},
 	hangup: function () {
 		cordova.plugins.sip.hangup(function (e) { console.log(e) }, function (e) { console.log(e) })
 	},
+	// speaker: function() {
+	// 	AudioToggle.setAudioMode(AudioToggle.SPEAKER);
+	// 	alert('viva loz ligado')
+	// },
+
+
+	// video: function () {
+	// 	cordova.plugins.sip.toggleVideo(function (e) { console.log(e) }, function (e) { console.log(e) })
+	// },
+	// mute: function () {
+	// 	cordova.plugins.sip.toggleMute(function (e) { console.log(e) }, function (e) { console.log(e) })
+	// },
+
+	
+
 	events: function (e) {
 		console.log(e);
 		if (e == 'Incoming') {
@@ -49,7 +70,7 @@ var sipManager = {
 			sipManager.listen();
 		}
 		if (e == 'End') {
-			alert("Call End!");
+			msg.innerHTML = "Chamada Finalizada";
 			sipManager.listen();
 		}
 
@@ -86,35 +107,47 @@ function onload() {
 
 document.addEventListener("deviceready", onDeviceReady, false);
 function onDeviceReady() {
-    // sipManager.register();
-    alert('Device Ready');
 }
 
-// document.getElementById("connect").addEventListener("click",()=> {
-// 	alert('as');
-// 	sipManager.register()
-// 	console.log("logis")
-// 	}
-// );
 
-// document.getElementById("endcall").addEventListener("click",()=> {
-// 	alert('as');
-// 	sipManager.hangup()
-// 	console.log("logis")
-// 	}
-// );
 
-// document.getElementById("call").addEventListener("click",()=> {
-// 	alert('as');
-// 	sipManager.call()
-// 	console.log("logis")
-// 	}
-// );
 
+const offButton = () => {
+	alert("Desligou")
+	sipManager.hangup();
+}
+
+  const vivaVoz = () =>{
+	 
+    if (aux ==true){
+		AudioToggle.setAudioMode(AudioToggle.SPEAKER);
+		aux = false;
+		alert('viva voz ligado')
+	}
+     else{
+		AudioToggle.setAudioMode(AudioToggle.EARPIECE);
+		aux = true;
+		alert('viva voz desligado')
+	 }
+	
+}
+
+
+
+
+// const mute = () =>{
+// 	alert("mutou")
+// 	 sipManager.mute(); 
+//   }
+
+//   const video = () =>{
+// 	alert("ligou video")
+// 	 sipManager.video(); 
+//   }  
 
 
 const handleCallButton = () => {
-	
+	msg.innerHTML = "Conectando..";
 	const options = {
 		method: 'get',
 		data: {
@@ -131,9 +164,6 @@ const handleCallButton = () => {
 	callid = data.ligarpara;
 	
 
-	alert(callid)
-	
-    
 
 	sipManager.register();
 	sipManager.call();
@@ -150,4 +180,11 @@ const handleCallButton = () => {
 
 }
 
+
 document.querySelector("#connect").addEventListener("click", ()=>{handleCallButton()})
+document.querySelector("#viva").addEventListener("click", ()=>{vivaVoz()})
+// document.querySelector("#video").addEventListener("click", ()=>{video()})
+// document.querySelector("#mute").addEventListener("click", ()=>{mute()})
+msg = document.querySelector("#spanid")
+document.querySelector("#off").addEventListener("click", ()=>{offButton()})
+

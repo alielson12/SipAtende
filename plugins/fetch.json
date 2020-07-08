@@ -32,5 +32,13 @@
     },
     "is_top_level": false,
     "variables": {}
+  },
+  "cordova-plugin-audiotoggle": {
+    "source": {
+      "type": "registry",
+      "id": "cordova-plugin-audiotoggle@^1.0.3"
+    },
+    "is_top_level": true,
+    "variables": {}
   }
 }

@@ -15,6 +15,9 @@
     },
     "cordova-plugin-advanced-http": {
       "PACKAGE_NAME": "io.cordova.hellocordova"
+    },
+    "cordova-plugin-audiotoggle": {
+      "PACKAGE_NAME": "io.cordova.hellocordova"
     }
   },
   "dependent_plugins": {

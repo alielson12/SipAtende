@@ -253,12 +253,21 @@ cordova.define('cordova/plugin_list', function(require, exports, module) {
       "clobbers": [
         "cordova.plugin.http"
       ]
+    },
+    {
+      "id": "cordova-plugin-audiotoggle.AudioToggle",
+      "file": "plugins/cordova-plugin-audiotoggle/www/audiotoggle.js",
+      "pluginId": "cordova-plugin-audiotoggle",
+      "clobbers": [
+        "AudioToggle"
+      ]
     }
   ];
   module.exports.metadata = {
     "cordova-plugin-whitelist": "1.3.4",
     "cordova-plugin-sip": "1.1.4",
     "cordova-plugin-file": "6.0.2",
-    "cordova-plugin-advanced-http": "2.5.1"
+    "cordova-plugin-advanced-http": "2.5.1",
+    "cordova-plugin-audiotoggle": "1.0.3"
   };
 });

@@ -257,6 +257,14 @@ module.exports = [
         "id": "cordova-plugin-advanced-http.http-proxy",
         "pluginId": "cordova-plugin-advanced-http",
         "runs": true
+    },
+    {
+        "file": "plugins/cordova-plugin-audiotoggle/www/audiotoggle.js",
+        "id": "cordova-plugin-audiotoggle.AudioToggle",
+        "pluginId": "cordova-plugin-audiotoggle",
+        "clobbers": [
+            "AudioToggle"
+        ]
     }
 ];
 module.exports.metadata = 
@@ -265,7 +273,8 @@ module.exports.metadata =
     "cordova-plugin-sip": "1.1.4",
     "cordova-plugin-whitelist": "1.3.4",
     "cordova-plugin-file": "6.0.2",
-    "cordova-plugin-advanced-http": "2.5.1"
+    "cordova-plugin-advanced-http": "2.5.1",
+    "cordova-plugin-audiotoggle": "1.0.3"
 }
 // BOTTOM OF METADATA
 });
